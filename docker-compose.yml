@@ -1,0 +1,8 @@
+services:
+  elk-led-control:
+    build: .
+    network_mode: host
+    privileged: true
+    volumes:
+      - /var/run/dbus:/var/run/dbus
+    entrypoint: ["elk-led-control"]
