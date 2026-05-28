@@ -1,0 +1,39 @@
+[package]
+name = "elk-led-controller"
+version = "0.1.1"
+authors = ["TheSylex", "biscoito <me@biscoito.eu>", "Rob Gray"]
+edition = "2021"
+description = "Fork of elk-led-controller with device selection support"
+license = "MIT"
+
+[lib]
+name = "elk_led_controller"
+path = "src/lib.rs"
+
+[[bin]]
+name = "elk-led-control"
+path = "src/main.rs"
+
+[dependencies]
+btleplug = "0.11.7"
+chrono = "0.4.40"
+clap = { version = "4.5.32", features = ["derive"] }
+color-eyre = "0.6.3"
+futures = "0.3.31"
+thiserror = "2.0.12"
+tokio = { version = "1.44.1", features = [
+    "rt",
+    "macros",
+    "rt-multi-thread",
+    "sync",
+    "time",
+    "signal",
+] }
+tracing = { version = "0.1.41", features = ["attributes"] }
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+uuid = "1.16.0"
+
+# Audio monitoring dependencies
+cpal = "0.15.3"
+spectrum-analyzer = "1.6.0"
+parking_lot = "0.12.1"
